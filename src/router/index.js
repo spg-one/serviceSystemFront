@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Home from '../components/Home'
+import InfoManagement from '../components/InfoManagement'
+import OrderManagement from '../components/OrderManagement'
+import Service from '../components/Service'
+import ComplaintManagement from '../components/ComplaintManagement'
+import CommentManagement from '../components/CommentManagement'
 
 Vue.use(Router)
 
@@ -8,8 +13,31 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      redirect: '/home'
+    },
+    {
+      path: '/home',
+      component: Home
+    },
+    {
+      path: '/InfoManagement',
+      component: InfoManagement
+    },
+    {
+      path: '/OrderManagement',
+      component: OrderManagement
+    },
+    {
+      path: '/Service',
+      component: Service
+    },
+    {
+      path: '/ComplaintManagement',
+      component: ComplaintManagement
+    },
+    {
+      path: '/CommentManagement',
+      component: CommentManagement
     }
   ]
 })

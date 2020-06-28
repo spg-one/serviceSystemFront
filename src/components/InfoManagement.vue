@@ -1,15 +1,14 @@
 <template>
   <div>
-   
+    <h2>信息管理</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'InfoManagement'
 }
 </script>
 
 <style>
-
 </style>
