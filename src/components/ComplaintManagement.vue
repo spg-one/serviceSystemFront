@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Banner from './Banner'
+import Banner from './common/Banner'
 export default {
   name: 'ComplaintManagement',
   components: {
