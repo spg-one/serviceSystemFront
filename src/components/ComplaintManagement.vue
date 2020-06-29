@@ -1,12 +1,17 @@
 <template>
   <div>
+    <Banner></Banner>
     <h2>投诉管理</h2>
   </div>
 </template>
 
 <script>
+import Banner from './Banner'
 export default {
-  name: 'ComplaintManagement'
+  name: 'ComplaintManagement',
+  components: {
+    Banner
+  }
 }
 </script>
 
