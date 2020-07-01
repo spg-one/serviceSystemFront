@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import 'view-design/dist/styles/iview.css';
 export default {
   name: 'App'
 }

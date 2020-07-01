@@ -6,10 +6,11 @@ import OrderManagement from '../components/OrderManagement'
 import Service from '../components/Service'
 import ComplaintManagement from '../components/ComplaintManagement'
 import CommentManagement from '../components/CommentManagement'
-
+import Login from '../components/Login'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -38,6 +39,10 @@ export default new Router({
     {
       path: '/CommentManagement',
       component: CommentManagement
+    },
+    {
+      path: '/login',
+      component: Login
     }
   ]
 })
