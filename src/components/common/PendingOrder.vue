@@ -24,7 +24,12 @@
           <td>{{pendingOrder.phone}}</td>
           <td>{{pendingOrder.service_name}}</td>
           <td>{{pendingOrder.deadline}}</td>
-          <td>接受，拒绝</td>
+          <td>
+            <div class="btnGroup">
+              <div style="margin-right:10px">接受</div>
+              <div>拒绝</div>
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
