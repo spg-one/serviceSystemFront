@@ -1,12 +1,20 @@
 <template>
+<div>
   <router-view/>
+</div>
 </template>
 
 <script>
+import Banner from './components/common/Banner'
 import 'view-design/dist/styles/iview.css';
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+    Banner
+  }
 }
+
+
 </script>
 <style>
 

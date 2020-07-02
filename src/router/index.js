@@ -14,10 +14,10 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/home'
+      redirect: '/Home'
     },
     {
-      path: '/home',
+      path: '/Home',
       component: Home
     },
     {

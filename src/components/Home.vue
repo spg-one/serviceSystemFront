@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TopLogin></TopLogin>
     <Banner></Banner>
     <div class="onetable">
       <PersonalInfo></PersonalInfo>
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import TopLogin from "./common/TopLogin"
 import PendingOrder from "./common/PendingOrder";
 import Banner from "./common/Banner";
 import PersonalInfo from "./PersonalInfo";
@@ -19,11 +21,11 @@ export default {
   components: {
     Banner,
     PendingOrder,
-    PersonalInfo
+    PersonalInfo,
+    TopLogin
   }
 };
 </script>
-
+  
 <style>
-
 </style>
