@@ -15,7 +15,7 @@
 import TopLogin from "./common/TopLogin"
 import PendingOrder from "./common/PendingOrder";
 import Banner from "./common/Banner";
-import PersonalInfo from "./PersonalInfo";
+import PersonalInfo from "./subComponents/PersonalInfo";
 export default {
   name: "Home",
   components: {

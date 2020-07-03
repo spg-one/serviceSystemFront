@@ -1,5 +1,6 @@
 <template>
   <div>
+    <TopLogin></TopLogin>
     <Banner></Banner>
     <h2>投诉管理</h2>
   </div>
@@ -7,10 +8,12 @@
 
 <script>
 import Banner from './common/Banner'
+import TopLogin from "./common/TopLogin"
 export default {
   name: 'ComplaintManagement',
   components: {
-    Banner
+    Banner,
+    TopLogin
   }
 }
 </script>

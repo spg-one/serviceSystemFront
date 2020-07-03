@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="pendingOrder in pengdingOrders" :key="pendingOrder.order_id">
+        <tr v-for="pendingOrder in pendingOrders" :key="pendingOrder.order_id">
           <td>{{pendingOrder.order_id}}</td>
           <td>{{pendingOrder.service_add}}</td>
           <td>{{pendingOrder.dispatch_time}}</td>
@@ -120,12 +120,12 @@ export default {
   name: "PendingOrder",
   data() {
     return {
-      pengdingOrders: {}
+      pendingOrders: {}
     };
   },
   created() {
     this.$http.get("/api/home-page/pending-order").then(res => {
-      this.pengdingOrders = res.data;
+      this.pendingOrders = res.data;
     });
   },
   methods: {
@@ -136,7 +136,7 @@ export default {
         param.append("order_id", order_id);
         that.$http.post("/api/home-page/accept-order", param);
         that.$http.get("/api/home-page/pending-order").then(res => {
-          that.pengdingOrders = res.data;
+          that.pendingOrders = res.data;
         });
       });
     },
@@ -147,7 +147,7 @@ export default {
         param.append("order_id", order_id);
         that.$http.post("/api/home-page/refuse-order", param);
         that.$http.get("/api/home-page/pending-order").then(res => {
-          that.pengdingOrders = res.data;
+          that.pendingOrders = res.data;
         });
       });
     }
