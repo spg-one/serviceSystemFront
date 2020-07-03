@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import TopLogin from "./common/TopLogin"
+import TopLogin from "./common/TopLogin";
 import PendingOrder from "./common/PendingOrder";
 import Banner from "./common/Banner";
 import PersonalInfo from "./subComponents/PersonalInfo";
@@ -26,6 +26,5 @@ export default {
   }
 };
 </script>
-  
-<style>
-</style>
+
+<style></style>

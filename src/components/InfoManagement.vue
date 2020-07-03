@@ -7,16 +7,15 @@
 </template>
 
 <script>
-import Banner from './common/Banner'
-import TopLogin from "./common/TopLogin"
+import Banner from "./common/Banner";
+import TopLogin from "./common/TopLogin";
 export default {
-  name: 'InfoManagement',
+  name: "InfoManagement",
   components: {
     Banner,
     TopLogin
   }
-}
+};
 </script>
 
-<style>
-</style>
+<style></style>

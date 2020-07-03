@@ -5,7 +5,9 @@
     <div class="onetable">
       <p
         style="padding-bottom:8px;padding-top:8px;font-size:14px;line-height:1.5;color:#41C7DB"
-      >服务商个人信息</p>
+      >
+        服务商个人信息
+      </p>
 
       <div class="divider"></div>
       <ul id="myTab" class="nav nav-tabs">
@@ -35,14 +37,17 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="pendingOrder in pendingOrders" :key="pendingOrder.order_id">
-                <td>{{pendingOrder.order_id}}</td>
-                <td>{{pendingOrder.service_add}}</td>
-                <td>{{pendingOrder.dispatch_time}}</td>
-                <td>{{pendingOrder.customer_name}}</td>
-                <td>{{pendingOrder.phone}}</td>
-                <td>{{pendingOrder.service_name}}</td>
-                <td>{{pendingOrder.deadline}}</td>
+              <tr
+                v-for="pendingOrder in pendingOrders"
+                :key="pendingOrder.order_id"
+              >
+                <td>{{ pendingOrder.order_id }}</td>
+                <td>{{ pendingOrder.service_add }}</td>
+                <td>{{ pendingOrder.dispatch_time }}</td>
+                <td>{{ pendingOrder.customer_name }}</td>
+                <td>{{ pendingOrder.phone }}</td>
+                <td>{{ pendingOrder.service_name }}</td>
+                <td>{{ pendingOrder.deadline }}</td>
                 <td>
                   <div class="btnGroup">
                     <div
@@ -50,12 +55,16 @@
                       v-on:click="accept(pendingOrder.order_id)"
                       data-toggle="modal"
                       data-target="#myModalAccept"
-                    >接受</div>
+                    >
+                      接受
+                    </div>
                     <div
                       v-on:click="refuse(pendingOrder.order_id)"
                       data-toggle="modal"
                       data-target="#myModalRefuse"
-                    >拒绝</div>
+                    >
+                      拒绝
+                    </div>
                   </div>
                 </td>
               </tr>
@@ -97,5 +106,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

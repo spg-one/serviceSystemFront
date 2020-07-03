@@ -1,7 +1,9 @@
 <template>
   <div>
     <table class="table table-striped">
-      <caption>待处理工单</caption>
+      <caption>
+        待处理工单
+      </caption>
       <div class="divider"></div>
       <thead>
         <tr>
@@ -17,13 +19,13 @@
       </thead>
       <tbody>
         <tr v-for="pendingOrder in pendingOrders" :key="pendingOrder.order_id">
-          <td>{{pendingOrder.order_id}}</td>
-          <td>{{pendingOrder.service_add}}</td>
-          <td>{{pendingOrder.dispatch_time}}</td>
-          <td>{{pendingOrder.customer_name}}</td>
-          <td>{{pendingOrder.phone}}</td>
-          <td>{{pendingOrder.service_name}}</td>
-          <td>{{pendingOrder.deadline}}</td>
+          <td>{{ pendingOrder.order_id }}</td>
+          <td>{{ pendingOrder.service_add }}</td>
+          <td>{{ pendingOrder.dispatch_time }}</td>
+          <td>{{ pendingOrder.customer_name }}</td>
+          <td>{{ pendingOrder.phone }}</td>
+          <td>{{ pendingOrder.service_name }}</td>
+          <td>{{ pendingOrder.deadline }}</td>
           <td>
             <div class="btnGroup">
               <div
@@ -31,12 +33,16 @@
                 v-on:click="accept(pendingOrder.order_id)"
                 data-toggle="modal"
                 data-target="#myModalAccept"
-              >接受</div>
+              >
+                接受
+              </div>
               <div
                 v-on:click="refuse(pendingOrder.order_id)"
                 data-toggle="modal"
                 data-target="#myModalRefuse"
-              >拒绝</div>
+              >
+                拒绝
+              </div>
             </div>
           </td>
         </tr>
@@ -54,7 +60,14 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              ×
+            </button>
             <h4 class="modal-title" id="myModalLabel">提示！</h4>
           </div>
           <div class="modal-body">确定拒绝本工单？</div>
@@ -64,13 +77,17 @@
               class="btn btn-default"
               data-dismiss="modal"
               id="btnConfirmRefuse"
-            >确定</button>
+            >
+              确定
+            </button>
             <button
               type="button"
               class="btn btn-primary"
               data-dismiss="modal"
               id="btnCancelRefuse"
-            >取消</button>
+            >
+              取消
+            </button>
           </div>
         </div>
         <!-- /.modal-content -->
@@ -89,7 +106,14 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-hidden="true"
+            >
+              ×
+            </button>
             <h4 class="modal-title" id="myModalLabel">提示！</h4>
           </div>
           <div class="modal-body">确定接受本工单？</div>
@@ -99,13 +123,17 @@
               class="btn btn-default"
               data-dismiss="modal"
               id="btnConfirmAccept"
-            >确定</button>
+            >
+              确定
+            </button>
             <button
               type="button"
               class="btn btn-primary"
               data-dismiss="modal"
               id="btnCancelAccept"
-            >取消</button>
+            >
+              取消
+            </button>
           </div>
         </div>
         <!-- /.modal-content -->

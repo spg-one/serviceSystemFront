@@ -1,8 +1,10 @@
 <template>
   <div>
     <table class="table table-striped">
-      <caption>服务商个人信息</caption>
-      <div class="divider"> </div>
+      <caption>
+        服务商个人信息
+      </caption>
+      <div class="divider"></div>
       <thead>
         <tr>
           <th>角色</th>
@@ -13,10 +15,10 @@
       </thead>
       <tbody>
         <tr>
-          <td>{{personalInfo.user_role}}</td>
-          <td>{{personalInfo.real_name}}</td>
-          <td>{{personalInfo.tell}}</td>
-          <td>{{personalInfo.address}}</td>
+          <td>{{ personalInfo.user_role }}</td>
+          <td>{{ personalInfo.real_name }}</td>
+          <td>{{ personalInfo.tell }}</td>
+          <td>{{ personalInfo.address }}</td>
         </tr>
       </tbody>
     </table>
@@ -28,12 +30,12 @@ export default {
   name: "PersonalInfo",
   data() {
     return {
-      personalInfo:{}
+      personalInfo: {}
     };
   },
   created() {
     this.$http.get("/api/home-page/personal-info").then(res => {
-      this.personalInfo=res.data;
+      this.personalInfo = res.data;
       console.log(this.personalInfo);
     });
   }
