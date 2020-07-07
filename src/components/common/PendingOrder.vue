@@ -1,10 +1,7 @@
 <template>
   <div>
     <table class="table table-striped">
-      <caption>
-        待处理工单
-      </caption>
-      <div class="divider"></div>
+      
       <thead>
         <tr>
           <th>工单号</th>

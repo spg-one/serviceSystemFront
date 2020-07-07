@@ -6,6 +6,12 @@
       <PersonalInfo></PersonalInfo>
     </div>
     <div class="onetable">
+      <p
+        style="padding-bottom:8px;padding-top:8px;font-size:14px;line-height:1.5;color:#41C7DB"
+      >
+        待处理工单
+      </p>
+      <hr />
       <PendingOrder></PendingOrder>
     </div>
   </div>
