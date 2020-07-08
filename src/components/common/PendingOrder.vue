@@ -151,6 +151,7 @@ export default {
   created() {
     this.$http.get("/api/home-page/pending-order").then(res => {
       this.pendingOrders = res.data;
+      console.log("in")
     });
   },
   methods: {

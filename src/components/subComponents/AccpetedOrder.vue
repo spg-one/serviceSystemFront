@@ -10,7 +10,6 @@
           <th>联系电话</th>
           <th>服务项目</th>
           <th>服务要求时间</th>
-          <th>服务人员</th>
           <th>操作</th>
         </tr>
       </thead>
@@ -27,37 +26,12 @@
           <td>{{ acceptedOrder.serviceScName }}</td>
           <td>{{ acceptedOrder.requireTime }}</td>
           <td v-if="acceptedOrder.orderState == 'accepted'">
-            <select
-              :id="acceptedOrder.orderId"
-              data-toggle="lgbSelect"
-              class="d-none"
-              style="padding-bottom:5px"
-            >
-              <option value="" selected hidden>--选择服务人员--</option>
-              <option value="1">佩奇</option>
-              <option value="2">乔治</option>
-              <option value="3">猪爸爸</option>
-              <option value="3">猪妈妈</option>
-            </select>
-          </td>
-          <td v-else>{{ acceptedOrder.servicePersonname }}</td>
-          <td v-if="acceptedOrder.orderState == 'accepted'">
-            <div class="btnGroup" v-if="personSelected">
+            <div class="btnGroup">
               <div
                 style="margin-right:10px"
                 v-on:click="dispose(acceptedOrder.orderId)"
                 data-toggle="modal"
-                data-target="#myModalDispose"
-              >
-                处理
-              </div>
-            </div>
-            <div class="btnGroup" v-else>
-              <div
-                style="margin-right:10px"
-                v-on:click="dispose(acceptedOrder.orderId)"
-                data-toggle="modal"
-                data-target="#myModalNullServicePerson"
+                data-target="#myModalHandle"
               >
                 处理
               </div>
@@ -69,7 +43,7 @@
     </table>
     <div
       class="modal fade"
-      id="myModalNullServicePerson"
+      id="myModalHandle"
       tabindex="-1"
       role="dialog"
       aria-labelledby="myModalLabel"
@@ -86,61 +60,135 @@
             >
               ×
             </button>
-            <h4 class="modal-title" id="myModalLabel">提示！</h4>
+            <h4 class="modal-title" id="myModalLabel">请完善工单信息</h4>
           </div>
-          <div class="modal-body">请选择服务人员</div>
+          <div class="modal-body">
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label"
+                  >工单紧急程度</label
+                >
+                <div class="col-sm-9">
+                  <select
+                    data-toggle="lgbSelect"
+                    class="d-none"
+                    style="padding-bottom:5px"
+                    v-model="urgency"
+                  >
+                    <option value="false" disabled selected hidden
+                      >--选择工单紧急程度--</option
+                    >
+                    <option value="一般">一般</option>
+                    <option value="紧急">紧急</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label"
+                  >服务人员</label
+                >
+                <div class="col-sm-9">
+                  <select
+                    data-toggle="lgbSelect"
+                    class="d-none"
+                    style="padding-bottom:5px"
+                    v-model="servicePerson"
+                  >
+                    <option value="false" disabled selected hidden
+                      >--选择服务人员--</option
+                    >
+                    <option value="佩奇">佩奇</option>
+                    <option value="乔治">乔治</option>
+                    <option value="猪爸爸">猪爸爸</option>
+                    <option value="猪妈妈">猪妈妈</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">服务人员电话</label>
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstname"
+                    placeholder="请输入服务人员电话"
+                    v-model="servicePersonPhone"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label"
+                  >服务单价</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstname"
+                    placeholder="请输入服务单价"
+                    v-model="unitPrice"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="lastname" class="col-sm-3 control-label"
+                  >服务时长</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastname"
+                    placeholder="请输入服务时长"
+                    v-model="duration"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-3 control-label">收费方式</label>
+                <div class="col-sm-9">
+                  <p class="form-control-static">{{ serviceMode }}</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label"
+                  >服务总价</label
+                >
+                <div class="col-sm-9">
+                  <p class="form-control-static">{{ duration * unitPrice }}</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label"
+                  >服务次数</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstname"
+                    placeholder="请输入服务次数"
+                    v-model="times"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-default"
+              class="btn btn-danger"
               data-dismiss="modal"
-              id="btnConfirmNullServicePerson"
+              id="btnConfirmHandle"
+              v-on:click="handle"
             >
-              确定
+              提交处理
             </button>
-          </div>
-        </div>
-        <!-- /.modal-content -->
-      </div>
-      <!-- /.modal-dialog -->
-    </div>
-    <div
-      class="modal fade"
-      id="myModalDispose"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="myModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-hidden="true"
-            >
-              ×
-            </button>
-            <h4 class="modal-title" id="myModalLabel">提示！</h4>
-          </div>
-          <div class="modal-body">确定处理本工单？</div>
-          <div class="modal-footer">
-            <button
+             <button
               type="button"
               class="btn btn-default"
               data-dismiss="modal"
-              id="btnConfirmDispose"
-              v-on:click="setOrderInprocessing()"
-            >
-              确定
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-dismiss="modal"
-              id="btnCancelDispose"
+              id="btnCancelHandle"
             >
               取消
             </button>
@@ -160,10 +208,20 @@ export default {
     return {
       acceptedOrders: {},
       handledOrders: {},
-      personSelected: false,
-      orderNotInProcessing: true,
+
+      serviceMode: "",
+
+      serviceModePer: "",
+
+      urgency: "",
       servicePerson: "",
-      orderId: ""
+      servicePersonPhone: "",
+      unitPrice: "",
+      duration: "",
+      times: "",
+
+      orderNotInProcessing: true,
+      orderid: ""
     };
   },
   created() {
@@ -173,28 +231,26 @@ export default {
   },
   methods: {
     dispose(orderId) {
-      let that = this;
-      if (
-        $("#" + orderId.toString() + " option:selected").text() !=
-        "--选择服务人员--"
-      ) {
-        that.personSelected = true;
-        that.servicePerson = $(
-          "#" + orderId.toString() + " option:selected"
-        ).text();
-        that.orderId = orderId + "";
+      for (var i = 0; i < this.acceptedOrders.length; i++) {
+        if (this.acceptedOrders[i].orderId == orderId) {
+          this.serviceMode = this.acceptedOrders[i].serviceMode;
+
+          this.orderid = orderId;
+        }
       }
     },
-    setOrderInprocessing() {
+    handle() {
+      var that = this;
       let param = new URLSearchParams();
-      param.append("orderId", this.orderId);
-      param.append("servicePersonname", this.servicePerson);
-      param.append("orderState", "processing");
-      this.orderNotInProcessing = false;
-      this.$http.post("api/order/set-service-person", param);
-      this.$http.get("api/order/get-accepted-order").then(res => {
-        this.acceptedOrders = res.data.acceptedOrders;
-      });
+      param.append("orderId", that.orderid);
+      param.append("urgency", that.urgency);
+      param.append("serviceCharge", that.unitPrice);
+      param.append("serviceDuration", that.duration);
+      param.append("serviceCount", that.unitPrice * that.duration);
+      param.append("servicePersonname", that.servicePerson);
+      param.append("servicePersonphone", that.servicePersonPhone);
+      param.append("serviceTimes", that.times);
+      that.$http.post("api/order/handle", param).then(res => {});
     }
   }
 };
