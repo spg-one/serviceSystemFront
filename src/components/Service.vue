@@ -2,19 +2,28 @@
   <div>
     <TopLogin></TopLogin>
     <Banner></Banner>
-    <h2>服务项目</h2>
+      <major-class></major-class>
+      <Subclass></Subclass>
+      <ItemManagement></ItemManagement>
+
   </div>
 </template>
 
 <script>
 import Banner from "./common/Banner";
 import TopLogin from "./common/TopLogin";
+import MajorClass from "./subComponents/MajorClass";
+import Subclass from "./subComponents/Subclass";
+import ItemManagement from "./subComponents/ItemManagement";
 export default {
   name: "Service",
   components: {
     Banner,
-    TopLogin
-  }
+    TopLogin,
+    MajorClass,
+    Subclass,
+    ItemManagement
+  },
 };
 </script>
 

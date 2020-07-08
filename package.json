@@ -17,7 +17,7 @@
     "axios": "^0.19.2",
     "element-ui": "^2.13.2",
     "view-design": "^4.2.0",
-    "vue": "^2.5.2",
+    "vue": "^2.6.11",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
@@ -86,5 +86,19 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spg-one/serviceSystemFront.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spg-one/serviceSystemFront/issues"
+  },
+  "homepage": "https://github.com/spg-one/serviceSystemFront#readme"
 }

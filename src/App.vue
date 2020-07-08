@@ -35,4 +35,8 @@ caption {
 .btnGroup :hover {
   cursor: pointer;
 }
+hr {
+  border-top: 3px solid #8c8b8b;
+  margin-bottom: 15px;
+}
 </style>
