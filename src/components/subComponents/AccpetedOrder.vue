@@ -65,7 +65,7 @@
           <div class="modal-body">
             <form class="form-horizontal" role="form">
               <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
+                <label class="col-sm-3 control-label"
                   >工单紧急程度</label
                 >
                 <div class="col-sm-9">
@@ -84,7 +84,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
+                <label class="col-sm-3 control-label"
                   >服务人员</label
                 >
                 <div class="col-sm-9">
@@ -105,40 +105,40 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-3 control-label">服务人员电话</label>
+                <label for="servicePersonPhone" class="col-sm-3 control-label">服务人员电话</label>
                 <div class="col-sm-9">
                   <input
                     type="text"
                     class="form-control"
-                    id="firstname"
+                    id="servicePersonPhone"
                     placeholder="请输入服务人员电话"
                     v-model="servicePersonPhone"
                   />
                 </div>
               </div>
               <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
+                <label for="unitPrice" class="col-sm-3 control-label"
                   >服务单价</label
                 >
                 <div class="col-sm-9">
                   <input
                     type="text"
                     class="form-control"
-                    id="firstname"
+                    id="unitPrice"
                     placeholder="请输入服务单价"
                     v-model="unitPrice"
                   />
                 </div>
               </div>
               <div class="form-group">
-                <label for="lastname" class="col-sm-3 control-label"
+                <label for="duration" class="col-sm-3 control-label"
                   >服务时长</label
                 >
                 <div class="col-sm-9">
                   <input
                     type="text"
                     class="form-control"
-                    id="lastname"
+                    id="duration"
                     placeholder="请输入服务时长"
                     v-model="duration"
                   />
@@ -151,22 +151,24 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
+                <label for="count" class="col-sm-3 control-label"
                   >服务总价</label
                 >
                 <div class="col-sm-9">
-                  <p class="form-control-static">{{ duration * unitPrice }}</p>
+                  <p id="count" class="form-control-static">
+                    {{ duration*unitPrice }}
+                  </p>
                 </div>
               </div>
               <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
+                <label for="times" class="col-sm-3 control-label"
                   >服务次数</label
                 >
                 <div class="col-sm-9">
                   <input
                     type="text"
                     class="form-control"
-                    id="firstname"
+                    id="times"
                     placeholder="请输入服务次数"
                     v-model="times"
                   />
@@ -184,7 +186,7 @@
             >
               提交处理
             </button>
-             <button
+            <button
               type="button"
               class="btn btn-default"
               data-dismiss="modal"
@@ -206,21 +208,15 @@ export default {
   name: "AcceptedOrder",
   data() {
     return {
-      acceptedOrders: {},
-      handledOrders: {},
-
-      serviceMode: "",
-
+      acceptedOrders: null,
+      serviceMode: null,
       serviceModePer: "",
-
       urgency: "",
       servicePerson: "",
       servicePersonPhone: "",
-      unitPrice: "",
-      duration: "",
+      unitPrice: null,
+      duration: null,
       times: "",
-
-      orderNotInProcessing: true,
       orderid: ""
     };
   },

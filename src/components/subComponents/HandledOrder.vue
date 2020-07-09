@@ -47,7 +47,7 @@
       aria-labelledby="myModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog" style="width:60%">
+      <div class="modal-dialog" style="width:70%">
         <div class="modal-content">
           <div class="modal-header">
             <button
@@ -58,239 +58,276 @@
             >
               ×
             </button>
-            <h4 class="modal-title" id="myModalLabel">工单详情</h4>
+            <h4 class="modal-title" id="myModalLabel">工单信息</h4>
           </div>
-          <div class="modal-body" style="display:flex">
+          <div
+            class="modal-body"
+            style="display:flex;justify-content: space-around"
+          >
             <form class="form-horizontal" role="form">
               <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
-                  >工单紧急程度</label
-                >
-                <div class="col-sm-9">
-                  <select
-                    data-toggle="lgbSelect"
-                    class="d-none"
-                    style="padding-bottom:5px"
-                    v-model="urgency"
-                  >
-                    <option value="false" disabled selected hidden
-                      >--选择工单紧急程度--</option
-                    >
-                    <option value="一般">一般</option>
-                    <option value="紧急">紧急</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
-                  >服务人员</label
-                >
-                <div class="col-sm-9">
-                  <select
-                    data-toggle="lgbSelect"
-                    class="d-none"
-                    style="padding-bottom:5px"
-                    v-model="servicePerson"
-                  >
-                    <option value="false" disabled selected hidden
-                      >--选择服务人员--</option
-                    >
-                    <option value="佩奇">佩奇</option>
-                    <option value="乔治">乔治</option>
-                    <option value="猪爸爸">猪爸爸</option>
-                    <option value="猪妈妈">猪妈妈</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label">服务人员电话</label>
-                <div class="col-sm-9">
+                <label class="col-sm-5 control-label">工单号</label>
+                <div class="col-sm-6">
                   <input
                     type="text"
                     class="form-control"
-                    id="firstname"
-                    placeholder="请输入服务人员电话"
-                    v-model="servicePersonPhone"
+                    disabled
+                    v-model="orderid"
                   />
                 </div>
               </div>
               <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
-                  >服务单价</label
-                >
-                <div class="col-sm-9">
+                <label class="col-sm-5 control-label">下单时间</label>
+                <div class="col-sm-6">
                   <input
                     type="text"
                     class="form-control"
-                    id="firstname"
-                    placeholder="请输入服务单价"
-                    v-model="unitPrice"
+                    disabled
+                    v-model="orderTime"
                   />
                 </div>
               </div>
               <div class="form-group">
-                <label for="lastname" class="col-sm-3 control-label"
-                  >服务时长</label
-                >
-                <div class="col-sm-9">
+                <label class="col-sm-5 control-label">服务地址</label>
+                <div class="col-sm-6">
                   <input
                     type="text"
                     class="form-control"
-                    id="lastname"
-                    placeholder="请输入服务时长"
-                    v-model="duration"
+                    disabled
+                    v-model="serviceAdd"
                   />
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-3 control-label">收费方式</label>
-                <div class="col-sm-9">
-                  <p class="form-control-static">{{ serviceMode }}</p>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
-                  >服务总价</label
-                >
-                <div class="col-sm-9">
-                  <p class="form-control-static">{{ duration * unitPrice }}</p>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
-                  >服务次数</label
-                >
-                <div class="col-sm-9">
+                <label class="col-sm-5 control-label">支付方式</label>
+                <div class="col-sm-6">
                   <input
                     type="text"
                     class="form-control"
-                    id="firstname"
-                    placeholder="请输入服务次数"
-                    v-model="times"
+                    disabled
+                    v-model="payment"
                   />
                 </div>
               </div>
             </form>
+
             <form class="form-horizontal" role="form">
               <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
-                  >工单紧急程度</label
-                >
-                <div class="col-sm-9">
-                  <select
-                    data-toggle="lgbSelect"
-                    class="d-none"
-                    style="padding-bottom:5px"
+                <label class="col-sm-5 control-label">商家服务点</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="merchant"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-5 control-label">老人姓名</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="name"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-5 control-label">服务要求时间</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="deadline"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-5 control-label">工单状态</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="state"
+                  />
+                </div>
+              </div>
+            </form>
+
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-sm-5 control-label">工单来源</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="source"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-5 control-label">联系电话</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="phone"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-5 control-label">工单紧急程度</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
                     v-model="urgency"
-                  >
-                    <option value="false" disabled selected hidden
-                      >--选择工单紧急程度--</option
-                    >
-                    <option value="一般">一般</option>
-                    <option value="紧急">紧急</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
-                  >服务人员</label
-                >
-                <div class="col-sm-9">
-                  <select
-                    data-toggle="lgbSelect"
-                    class="d-none"
-                    style="padding-bottom:5px"
-                    v-model="servicePerson"
-                  >
-                    <option value="false" disabled selected hidden
-                      >--选择服务人员--</option
-                    >
-                    <option value="佩奇">佩奇</option>
-                    <option value="乔治">乔治</option>
-                    <option value="猪爸爸">猪爸爸</option>
-                    <option value="猪妈妈">猪妈妈</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label">服务人员电话</label>
-                <div class="col-sm-9">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="firstname"
-                    placeholder="请输入服务人员电话"
-                    v-model="servicePersonPhone"
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
-                  >服务单价</label
-                >
-                <div class="col-sm-9">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="firstname"
-                    placeholder="请输入服务单价"
-                    v-model="unitPrice"
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="lastname" class="col-sm-3 control-label"
-                  >服务时长</label
-                >
-                <div class="col-sm-9">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="lastname"
-                    placeholder="请输入服务时长"
-                    v-model="duration"
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label">收费方式</label>
-                <div class="col-sm-9">
-                  <p class="form-control-static">{{ serviceMode }}</p>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
-                  >服务总价</label
-                >
-                <div class="col-sm-9">
-                  <p class="form-control-static">{{ duration * unitPrice }}</p>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="firstname" class="col-sm-3 control-label"
-                  >服务次数</label
-                >
-                <div class="col-sm-9">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="firstname"
-                    placeholder="请输入服务次数"
-                    v-model="times"
                   />
                 </div>
               </div>
             </form>
           </div>
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">服务信息</h4>
+          </div>
+          <div
+            class="modal-body"
+            style="display:flex;justify-content: space-around"
+          >
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-sm-5 control-label">服务方名称</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="serviceProName"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-5 control-label">服务方式</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="serviceMode"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-5 control-label">服务单价</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="serviceCharge"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-5 control-label">服务要求</label>
+                <div class="col-sm-6">
+                  <textarea
+                    class="form-control"
+                    disabled
+                    v-model="serviceRequire"
+                  />
+                </div>
+              </div>
+            </form>
+
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-sm-5 control-label">服务大类</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="serviceLcName"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-5 control-label">服务人员</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="servicePersonname"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-5 control-label">服务时长</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="serviceDuration"
+                  />
+                </div>
+              </div>
+            </form>
+
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <label class="col-sm-5 control-label">服务项目</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="serviceScName"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-5 control-label">服务电话</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="servicePhone"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-5 control-label">服务总价</label>
+                <div class="col-sm-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    disabled
+                    v-model="serviceCount"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+
           <div class="modal-footer">
             <button
               type="button"
               class="btn btn-default"
               data-dismiss="modal"
-              id="btnConfirmHandle"
-              v-on:click="handle"
+              id="btnConfirmDetail"
             >
-              确定
+              返回
             </button>
           </div>
         </div>
@@ -305,7 +342,29 @@ export default {
   name: "HandledOrder",
   data() {
     return {
-      handledOrders: {}
+      handledOrders: {},
+      handledOrderInfor: null,
+      orderid: "",
+      orderTime: "",
+      serviceAdd: "",
+      payment: "",
+      merchant: "",
+      name: "",
+      deadline: "",
+      source: "",
+      phone: "",
+      urgency: "",
+      state: "",
+      serviceProName: "",
+      serviceMode: "",
+      serviceCharge: "",
+      serviceLcName: "",
+      servicePersonname: "",
+      serviceDuration: "",
+      serviceScName: "",
+      servicePhone: "",
+      serviceCount: "",
+      serviceRequire: ""
     };
   },
   created() {
@@ -313,6 +372,39 @@ export default {
       this.handledOrders = res.data.handledOrders;
     });
   },
-  methods: {}
+  methods: {
+    detail(orderId) {
+      var that = this;
+      let param = new URLSearchParams();
+      param.append("orderId", orderId);
+      console.log(orderId);
+      this.$http
+        .get("api/order/get-handled-order-infor?orderId=" + orderId)
+        .then(res => {
+          this.handledOrderInfor = res.data.handledOrderInfor;
+          this.orderid = this.handledOrderInfor.orderId;
+          this.orderTime = this.handledOrderInfor.orderTime;
+          this.serviceAdd = this.handledOrderInfor.serviceAdd;
+          this.payment = this.handledOrderInfor.serviceMode;
+          this.merchant = this.handledOrderInfor.marchantAdd;
+          this.name = this.handledOrderInfor.customerName;
+          this.deadline = this.handledOrderInfor.requireTime;
+          this.source = this.handledOrderInfor.orderSourse;
+          this.phone = this.handledOrderInfor.phone;
+          this.urgency = this.handledOrderInfor.urgency;
+          this.state = this.handledOrderInfor.orderState;
+          this.serviceProName = this.handledOrderInfor.serviceProName;
+          this.serviceMode = this.handledOrderInfor.serviceMode;
+          this.serviceCharge = this.handledOrderInfor.serviceCharge;
+          this.serviceLcName = this.handledOrderInfor.serviceLcName;
+          this.servicePersonname = this.handledOrderInfor.servicePersonname;
+          this.serviceDuration = this.handledOrderInfor.serviceDuration;
+          this.serviceScName = this.handledOrderInfor.serviceScName;
+          this.servicePhone = this.handledOrderInfor.servicePhone;
+          this.serviceCount = this.handledOrderInfor.serviceCount;
+          this.serviceRequire = this.handledOrderInfor.serviceRequire;
+        });
+    }
+  }
 };
 </script>
