@@ -151,7 +151,6 @@ export default {
   created() {
     this.$http.get("/api/home-page/pending-order").then(res => {
       this.pendingOrders = res.data;
-      console.log("in")
     });
   },
   methods: {
@@ -161,9 +160,10 @@ export default {
         let param = new URLSearchParams();
         param.append("order_id", order_id);
         that.$http.post("/api/home-page/accept-order", param);
-        that.$http.get("/api/home-page/pending-order").then(res => {
+        /* that.$http.get("/api/home-page/pending-order").then(res => {
           that.pendingOrders = res.data;
-        });
+        }); */
+        //location.reload()
       });
     },
     refuse(order_id) {
@@ -174,6 +174,7 @@ export default {
         that.$http.post("/api/home-page/refuse-order", param);
         that.$http.get("/api/home-page/pending-order").then(res => {
           that.pendingOrders = res.data;
+          
         });
       });
     }

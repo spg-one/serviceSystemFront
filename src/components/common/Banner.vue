@@ -66,8 +66,6 @@ $(document).ready(function() {
         $(this).addClass("active");
       } else {
         $(this).removeClass("active");
-        console.log($(a).attr("href"));
-        console.log(location.pathname);
       }
     });
 });

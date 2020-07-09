@@ -36,7 +36,6 @@ export default {
   created() {
     this.$http.get("/api/home-page/personal-info").then(res => {
       this.personalInfo = res.data;
-      console.log(this.personalInfo);
     });
   }
 };
