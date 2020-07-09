@@ -9,7 +9,7 @@
         工单管理
       </p>
 
-      <div class="divider"></div>
+      <hr>
       <ul id="myTab" class="nav nav-tabs">
         <li class="active">
           <a href="#pendingOrder" data-toggle="tab">待处理</a>

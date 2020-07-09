@@ -2,9 +2,9 @@
   <div>
     <table class="table table-striped">
       <caption>
-        服务商个人信息
+        服务商个人信息<hr>
       </caption>
-      <div class="divider"></div>
+      
       <thead>
         <tr>
           <th>角色</th>

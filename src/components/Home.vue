@@ -11,7 +11,7 @@
       >
         待处理工单
       </p>
-      <hr />
+      <hr>
       <PendingOrder></PendingOrder>
     </div>
   </div>

@@ -3,7 +3,7 @@
     <div id="toplogin">
       <div><a href="../Login">登录</a></div>
       <div>|</div>
-      <div v-on:click="logout">登出</div>
+      <div v-on:click="logout"><a href="../Login">登出</a></div>
       <div>|</div>
       <div>
         <a id="eee" href="https://github.com/feidudeqiu/serviceSystem"

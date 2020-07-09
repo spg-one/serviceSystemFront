@@ -82,7 +82,7 @@ export default {
             duration: 3,
             closable: true,
             onClose: function() {
-              that.$router.replace("/");
+              that.$router.replace("/home");
             }
           });
         })

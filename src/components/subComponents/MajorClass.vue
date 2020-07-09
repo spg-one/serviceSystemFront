@@ -16,7 +16,7 @@
         <label for="Number">系统编号</label>
         <input type="text" class="form-control" v-model="majorClass.number" id="Number" placeholder="如：001">
       </div>&nbsp;&nbsp;
-      <input value="查询" type="button" @click="searchClass" class="btn btn-success"></input>
+      <input value="查询" type="button" @click="searchClass" class="btn btn-success">
     </form>
     <table class="table table-striped">
       <thead>
