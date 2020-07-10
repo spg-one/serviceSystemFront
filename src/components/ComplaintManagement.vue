@@ -29,58 +29,64 @@
         </div>
         <input value="查询" type="button" @click="getList" class="btn btn-success"></input>
       </form>
+<!--      详情界面-->
       <div v-model="complaint" v-if="!show" >
         <form class="form-inline" style="text-align: center">
           <div class="form-group">
-            <label for="cname" style="width:100px;text-align:right">投诉人姓名</label>
-            <input type="text" class="form-control" id="cname" v-model="complaint.comPerson" readonly>
+            <label for="cname" style="width:80px;text-align:right">投诉人姓名</label>
+            <input type="text" class="form-control" style="width: 250px" id="cname" v-model="complaint.comPerson" readonly>
           </div>
           <div class="form-group">
-            <label for="cphone">联系电话</label>
-            <input type="email" class="form-control" id="cphone" v-model="complaint.personPhone" readonly>
+            <label for="cphone" style="width:80px;text-align:right">联系电话</label>
+            <input type="email" class="form-control" style="width: 250px" id="cphone" v-model="complaint.personPhone" readonly>
           </div>
           <br/>
           <br/>
           <div class="form-group">
-            <label for="cbusy" style="width:100px;text-align:right">投诉商家</label>
-            <input type="text" class="form-control" id="cbusy" v-model="complaint.comBusiness" readonly>
+            <label for="cbusy" style="width:80px;text-align:right">投诉商家</label>
+            <input type="text" class="form-control" style="width: 250px" id="cbusy" v-model="complaint.comBusiness" readonly>
           </div>
           <div class="form-group">
-            <label for="cwork">投诉订单</label>
-            <input type="email" class="form-control" id="cwork" v-model="complaint.comWork" readonly>
+            <label for="cinfo" style="width:80px;text-align:right">投诉内容</label>
+            <input type="email" class="form-control" style="width: 250px" id="cinfo" v-model="complaint.comInfo" readonly>
           </div>
           <br>
           <br>
           <div class="form-group">
-            <label for="cstate" style="width:100px;text-align:right">处理状态</label>
-            <input type="text" class="form-control" id="cstate" v-model="complaint.dealState" readonly>
+            <label for="cwork" style="width:80px;text-align:right">投诉订单</label>
+            <input type="email" class="form-control" style="width: 250px" id="cwork" v-model="complaint.comWork" readonly>
           </div>
           <div class="form-group">
-            <label for="cinfo">投诉内容</label>
-            <input type="email" class="form-control" id="cinfo" v-model="complaint.comInfo" readonly>
+            <label for="cstate" style="width:80px;text-align:right">处理状态</label>
+            <input type="text" class="form-control" style="width: 250px" id="cstate" v-model="complaint.dealState" readonly>
+          </div>
+          <br>
+          <br>
+          <div class="form-group">
+            <label for="bphone" style="width:80px;text-align:right">商家电话</label>
+            <input type="email" class="form-control" style="width: 250px" id="bphone" v-model="complaint.busiPhone" readonly>
+          </div>
+          <div class="form-group">
+            <label for="detail" style="width:80px;text-align:right">处理情况</label>
+            <input type="text" class="form-control" style="width: 250px" id="detail" v-model="complaint.dealEnding" readonly>
           </div>
           <br>
           <br>
           <input type="button" class="btn btn-success btn-sm" @click="change" value="返回"></input>
         </form>
-
-
-
       </div>
+
+
       <table class="table table-striped" v-if="show">
         <thead>
         <tr>
           <th>序号</th>
           <th>投诉人</th>
           <th>联系电话</th>
-          <th>投诉工单</th>
           <th>投诉商家</th>
-          <th>商家电话</th>
           <th>处理状态</th>
-          <th>投诉内容</th>
           <th>处理人</th>
           <th>处理时间</th>
-          <th>处理情况</th>
           <th>操作</th>
         </tr>
         </thead>
@@ -89,14 +95,11 @@
           <td>{{index+1}}</td>
           <td>{{complaint.comPerson}}</td>
           <td>{{complaint.personPhone}}</td>
-          <td>{{complaint.comWork}}</td>
           <td>{{complaint.comBusiness}}</td>
           <td>{{complaint.busiPhone}}</td>
           <td>{{complaint.dealState}}</td>
-          <td>{{complaint.comInfo}}</td>
           <td>{{complaint.dealPerson}}</td>
           <td>{{complaint.dealDate}}</td>
-          <td>{{complaint.dealEnding}}</td>
           <td><a href="javascript:void(0)" class="btn btn-info btn-sm" @click="goDetail(complaint)">详情</a></td>
         </tr>
         </tbody>
